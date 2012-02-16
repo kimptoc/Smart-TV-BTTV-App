@@ -1,0 +1,9 @@
+setup
+- haml
+- ember
+- latest jquery
+
+
+app
+- pull config file from remote jquery/ajax
+- build up TV page based on config
