@@ -2,7 +2,7 @@ window.app = { views: {} }
 
 
 app.startup_callback = ->
-  $.ajax 'http://localhost/scrap/bttv/channels.json.php', dataType:"json", complete: (-> console.log "c"), error: ((x,t,e)-> console.log x,t,e), success:(data)->
+  $.ajax 'http://bttv.kimptoc.net/Smart-TV-BTTV-Config/channels.json.php', dataType:"json", complete: (-> console.log "c"), error: ((x,t,e)-> console.log x,t,e), success:(data)->
     console.log "channels response:",data
     # convert to model objects - station, channels
     app.station = new Serenade.Model data.station
