@@ -28,7 +28,7 @@ app.startup_callback = ->
 class app.ViewLoader
   constructor: (p_view, p_url) ->
     @view = p_view
-    @url = p_url
+    @url = "http://bttv.kimptoc.net/Smart-TV-BTTV-Config/views/#{p_url}.php"
   load: ->
     $.get @url, (data, t, j)=>
 #      console.log "view loaded:#{@view}", data
@@ -43,7 +43,7 @@ app.startup = ->
   views =
 #    station : '/views/station.serenade'
 #    channels : '/views/channels.serenade'
-    allinone : '/views/allinone.serenade'
+    allinone : 'allinone.serenade'
 
   for view, url of views
     console.log "view loading:#{view}/#{url}"
