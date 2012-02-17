@@ -1,9 +1,9 @@
-setup
-- haml
-- ember
-- latest jquery
-
 
 app
-- pull config file from remote jquery/ajax
-- build up TV page based on config
+- get config for view url root then load views
+- get css from remote site - http://stackoverflow.com/questions/5582182/switching-stylesheet-with-javascript-based-on-browser
+- test first page on simulator
+- get BTN page background
+- "loading" animation
+- channel viewing page
+- where to put config, eg config url
