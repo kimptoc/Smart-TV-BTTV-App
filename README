@@ -7,3 +7,5 @@ app
 - "loading" animation
 - channel viewing page
 - where to put config, eg config url
+
+- use jQuery Deferred's for the async startup stuff, perhaps...
