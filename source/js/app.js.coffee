@@ -4,6 +4,7 @@ window.app =
 
 app.startup = ->
   console.log "app startup"
+  $("#loading-message").html("<br>Starting Bagel Tech TV...");
   app.ConfigLoader(app.LoadViews)
 
 
