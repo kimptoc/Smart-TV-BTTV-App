@@ -11,7 +11,9 @@
     ViewLoader.prototype.load = function() {
       var _this = this;
       return $.get(this.url, function(data, t, j) {
-        console.log("view loaded:" + _this.view);
+        if (typeof console !== "undefined" && console !== null) {
+          console.log("view loaded:" + _this.view);
+        }
         Serenade.view(_this.view, data);
         return _this.callback();
       });

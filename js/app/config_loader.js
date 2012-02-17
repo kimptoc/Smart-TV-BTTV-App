@@ -1,18 +1,22 @@
 (function() {
 
   app.ConfigLoader = function(p_config_loaded_callback) {
-    console.log("Config Loader");
+    if (typeof console !== "undefined" && console !== null) {
+      console.log("Config Loader");
+    }
     return $.ajax(app.remote_config_url, {
       dataType: "json",
       complete: (function() {
-        return console.log("c");
+        return typeof console !== "undefined" && console !== null ? console.log("c") : void 0;
       }),
       error: (function(x, t, e) {
-        return console.log(x, t, e);
+        return typeof console !== "undefined" && console !== null ? console.log(x, t, e) : void 0;
       }),
       success: function(data) {
         var ch, channel, channels, _i, _len, _ref;
-        console.log("channels response:", data);
+        if (typeof console !== "undefined" && console !== null) {
+          console.log("channels response:", data);
+        }
         app.station = new Serenade.Model(data.station);
         channels = new Serenade.Collection([]);
         app.station.hasMany('channels');
