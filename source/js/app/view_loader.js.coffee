@@ -5,8 +5,8 @@ class app.ViewLoader
     @callback = p_callback
   load: ->
     $.get @url, (data, t, j)=>
-#      console.log "view loaded:#{@view}", data
-      console.log "view loaded:#{@view}"
+#      console?.log "view loaded:#{@view}", data
+      console?.log "view loaded:#{@view}"
       Serenade.view(@view  ,data)
       @callback()
 

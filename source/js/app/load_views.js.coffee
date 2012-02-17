@@ -1,5 +1,5 @@
 app.LoadViews = (p_views_loaded_callback)->
-  console.log "load views"
+  console?.log "load views"
 
   views =
 #    station : '/views/station.serenade'
@@ -7,7 +7,7 @@ app.LoadViews = (p_views_loaded_callback)->
     allinone : 'allinone.serenade'
 
   for view, url of views
-    console.log "view loading:#{view}/#{url}"
+    console?.log "view loading:#{view}/#{url}"
     loader = new app.ViewLoader(view, url, p_views_loaded_callback)
     loader.load()
 #      local_view = view

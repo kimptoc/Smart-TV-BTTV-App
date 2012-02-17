@@ -10,3 +10,13 @@ TODO LATER
 - middleman build / not minifying/combining js files...
 - use jQuery Deferred's for the async startup stuff, perhaps...
 - refactor layout - put top/bottom in layout, so that minimum in index.html
+
+NOTES
+- win7 screen/window capture on MBA
+Print Screen
+ F14
+ Fn-Shift-F11
+Print active window
+ Option-F14
+ Fn-Shift-Option-F11
+
