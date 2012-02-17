@@ -4,7 +4,6 @@ TODO
 - get BTN page background
 - better "loading" animation
 - channel viewing page
-- where to put config, eg config url
 
 TODO LATER
 - middleman build / not minifying/combining js files...
