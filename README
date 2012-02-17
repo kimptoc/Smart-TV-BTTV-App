@@ -7,5 +7,6 @@ TODO
 - where to put config, eg config url
 
 TODO LATER
+- middleman build / not minifying/combining js files...
 - use jQuery Deferred's for the async startup stuff, perhaps...
 - refactor layout - put top/bottom in layout, so that minimum in index.html
