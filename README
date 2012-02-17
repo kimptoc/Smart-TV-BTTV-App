@@ -1,11 +1,11 @@
 
-app
-- get config for view url root then load views
-- get css from remote site - http://stackoverflow.com/questions/5582182/switching-stylesheet-with-javascript-based-on-browser
+TODO
 - test first page on simulator
 - get BTN page background
 - "loading" animation
 - channel viewing page
 - where to put config, eg config url
 
+TODO LATER
 - use jQuery Deferred's for the async startup stuff, perhaps...
+- refactor layout - put top/bottom in layout, so that minimum in index.html
