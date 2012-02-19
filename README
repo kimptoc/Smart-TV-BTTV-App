@@ -7,8 +7,9 @@ TODO
 
 TODO LATER
 - middleman build / not minifying/combining js files...
-- use jQuery Deferred's for the async startup stuff, perhaps...
+- use jQuery Deferred's for the async startup stuff, perhaps... or futureJS - https://github.com/coolaj86/futures
 - refactor layout - put top/bottom in layout, so that minimum in index.html
+- reload page now and then to ensure latest shown - https://developer.mozilla.org/en/DOM/window.setInterval
 
 NOTES
 - win7 screen/window capture on MBA
