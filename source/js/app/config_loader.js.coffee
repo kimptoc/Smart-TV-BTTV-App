@@ -1,6 +1,6 @@
-app.ConfigLoader = (p_config_loaded_callback)->
+app.ConfigLoader = ->
   console?.log "Config Loader"
-  $.ajax app.remote_config_url, dataType:"json", complete: (-> console?.log "c"), error: ((x,t,e)-> console?.log x,t,e), success:(data)->
+  return $.ajax app.remote_config_url, dataType:"json", complete: (-> console?.log "c"), error: ((x,t,e)-> console?.log x,t,e), success:(data)->
     console?.log "channels response:",data
     # convert to model objects - station, channels
     app.station = new Serenade.Model data.station
@@ -14,5 +14,4 @@ app.ConfigLoader = (p_config_loaded_callback)->
         channel.belongsTo app.station
         app.station.channels.push channel
 
-    p_config_loaded_callback(app.AppReady)
 
