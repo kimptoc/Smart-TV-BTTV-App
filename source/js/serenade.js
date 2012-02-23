@@ -76,19 +76,17 @@
 };require['./helpers'] = new function() {
   var exports = this;
   (function() {
-  var Helpers;
+  var Helpers,
+    __hasProp = Object.prototype.hasOwnProperty;
 
   Helpers = {
     extend: function(target, source) {
       var key, value, _results;
       _results = [];
       for (key in source) {
+        if (!__hasProp.call(source, key)) continue;
         value = source[key];
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          _results.push(target[key] = value);
-        } else {
-          _results.push(void 0);
-        }
+        _results.push(target[key] = value);
       }
       return _results;
     },
@@ -611,9 +609,9 @@
 
   STRING = /^"((?:\\.|[^"])*)"/;
 
-  MULTI_DENT = /^(?:\n[^\n\S]*)+/;
+  MULTI_DENT = /^(?:\r?\n[^\r\n\S]*)+/;
 
-  WHITESPACE = /^[^\n\S]+/;
+  WHITESPACE = /^[^\r\n\S]+/;
 
   Lexer = (function() {
 
@@ -1789,7 +1787,8 @@ if (typeof module !== 'undefined' && require.main === module) {
   var exports = this;
   (function() {
   var Collection, Events, Serenade, define, exp, extend, map, pairToObject, prefix, serializeObject, _ref,
-    __indexOf = Array.prototype.indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+    __indexOf = Array.prototype.indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },
+    __hasProp = Object.prototype.hasOwnProperty;
 
   Serenade = require('./serenade').Serenade;
 
@@ -1832,7 +1831,8 @@ if (typeof module !== 'undefined' && require.main === module) {
       }
     },
     collection: function(name, options) {
-      return this.property(name, {
+      if (options == null) options = {};
+      extend(options, {
         get: function() {
           var _this = this;
           if (!this.attributes[name]) {
@@ -1848,6 +1848,7 @@ if (typeof module !== 'undefined' && require.main === module) {
           return this.get(name).update(value);
         }
       });
+      return this.property(name, options);
     },
     set: function(attributes, value) {
       var name, names, _ref2;
@@ -1910,7 +1911,7 @@ if (typeof module !== 'undefined' && require.main === module) {
     _defer: function(name) {
       var deferred, _ref2;
       deferred = this.get(name);
-      if (deferred != null ? deferred._triggerChangesTo : void 0) {
+      if ((deferred != null) && (deferred != null ? deferred._triggerChangesTo : void 0)) {
         deferred._deferTo || (deferred._deferTo = {});
         return (_ref2 = deferred._deferTo) != null ? _ref2[name] = this : void 0;
       }
@@ -1967,8 +1968,8 @@ if (typeof module !== 'undefined' && require.main === module) {
       }
       _results = [];
       for (deferName in allDefers) {
+        if (!__hasProp.call(allDefers, deferName)) continue;
         deferObject = allDefers[deferName];
-        if (!(allDefers.hasOwnProperty(deferName))) continue;
         keys = map(changedProperties, function(prop) {
           return "" + deferName + "." + prop;
         });
