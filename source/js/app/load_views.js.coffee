@@ -3,7 +3,7 @@ app.LoadViews = (p_views_loaded_callback)->
 
   views =
 #    station : '/views/station.serenade'
-#    channels : '/views/channels.serenade'
+    channel : 'channel.serenade'
     allinone : 'allinone.serenade'
 
   for view, url of views
