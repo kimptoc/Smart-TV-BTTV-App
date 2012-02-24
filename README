@@ -11,6 +11,8 @@ TODO LATER
 - refactor layout - put top/bottom in layout, so that minimum in index.html
 - reload page now and then to ensure latest shown - https://developer.mozilla.org/en/DOM/window.setInterval
 
+- only works on 2012 samsung, see if can make it work on 2011/2010 models?
+
 NOTES
 - win7 screen/window capture on MBA
 Print Screen
@@ -21,29 +23,3 @@ Print active window
  Fn-Shift-Option-F11
 
 
-Coffeescript
-
- You can use `do` to wrap the variables:
-
- for view, url of views
-  do (view, url) ->
-     console.log "view loading:#{view}/#{url}"
-     $.get url, (data) ->
-       local_view = view
-       console.log "view loaded:#{local_view}", data
-
-or
-
-That's true, then all he needs is to break that out into a function:
-
-loadView = (view, url) ->
-   console.log "view loading:#{view}/#{url}"
-   $.get url, (data) ->
-       console.log "view loaded:#{view}", data
-
-loadView(view, url) for view, url of views
-
-Though it might be better to pass a callback to loadView, so you can
-better control the flow, e.g. if you wanted to do them in a series
-instead of parallel or even a pool of a maximum number of parallel
-calls.
