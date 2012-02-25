@@ -1,3 +1,10 @@
+This is an app to present the podcasts of the Bagel Tech Network (http://www.bageltechnews.com/).
+
+Demo site here:
+http://kimptoc.github.com/Smart-TV-BTTV-App/
+
+It just presents a menu of channels and then you can view/stream an episode from a selected channel.
+
 
 TODO
 - keyboard handling to get to channels page
