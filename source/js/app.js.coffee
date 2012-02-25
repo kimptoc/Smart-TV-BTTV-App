@@ -1,17 +1,17 @@
-window.app =
+window.bttv =
   views: {}
 
 
-app.startup = ->
+bttv.startup = ->
   console?.log "app startup"
   $("#loading-message").html("<br>Starting Bagel Tech TV...");
-  app.ConfigLoader().pipe(app.LoadViews).then(app.AppReady)
+  bttv.ConfigLoader().pipe(bttv.LoadViews).then(bttv.AppReady)
 
 
-#jQuery ->
+jQuery ->
 #  alert("my onload")
 #  tmpl = $("#app").html()
 #  console.log tmpl
 
-#  app.startup()
+  bttv.startup()
 

@@ -1,11 +1,13 @@
 
 TODO
-- test first page on simulator
-- get BTN page background
-- better "loading" animation
+- keyboard handling to get to channels page
 - channel viewing page
+- integrate sample vid code "as is", should mean rss show list will work
+- more generic keyboard handling?
 
 TODO LATER
+- get BTN page background
+- better "loading" animation
 - middleman build / not minifying/combining js files...
 - use jQuery Deferred's for the async startup stuff, perhaps... or futureJS - https://github.com/coolaj86/futures
 - refactor layout - put top/bottom in layout, so that minimum in index.html

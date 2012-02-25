@@ -1,5 +1,5 @@
-app.widgetAPI = new Common.API.Widget()
-app.tvKey = new Common.API.TVKeyValue()
+bttv.widgetAPI = new Common.API.Widget()
+bttv.tvKey = new Common.API.TVKeyValue()
 
-app.widgetAPI?.sendReadyEvent()
+bttv.widgetAPI?.sendReadyEvent()
 

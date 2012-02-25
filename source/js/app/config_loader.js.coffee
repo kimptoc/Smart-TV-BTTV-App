@@ -1,21 +1,21 @@
-app.log = (msg, data) ->
+bttv.log = (msg, data) ->
   console?.log msg, data
   alert msg if Common?
 
-app.ConfigLoader = ->
-  app.log "config loading..."
-  return $.ajax app.remote_config_url, dataType:"json", complete: (-> console?.log "c"), error: ((x,t,e)-> console?.log x,t,e), success:(data)->
-    app.log "channels response:",data
+bttv.ConfigLoader = ->
+  bttv.log "config loading..."
+  return $.ajax bttv.remote_config_url, dataType:"json", complete: (-> console?.log "c"), error: ((x,t,e)-> console?.log x,t,e), success:(data)->
+    bttv.log "channels response:",data
     # convert to model objects - station, channels
-    app.station = new Serenade.Model data.station
+    bttv.station = new Serenade.Model data.station
     channels = new Serenade.Collection []
-    app.station.hasMany 'channels'
+    bttv.station.hasMany 'channels'
 
     for ch in data.channels
 #      console.log ch
       if ch.enabled != "false"
         channel = new Serenade.Model ch
-        channel.belongsTo app.station
-        app.station.channels.push channel
+        channel.belongsTo bttv.station
+        bttv.station.channels.push channel
 
 
