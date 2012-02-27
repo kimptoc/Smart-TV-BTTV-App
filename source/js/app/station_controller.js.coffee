@@ -10,8 +10,9 @@ class bttv.StationController
     bttv.log "station key handler"
 
   registerKeys: ->
-    KeyboardJS.bind.key('up', @keyUpHandler)
-    KeyboardJS.bind.key('remote_up', @keyUpHandler)
+    bttv.log "registering key handlers"
+    KeyboardJS.bind.key("up", @keyUpHandler)
+    KeyboardJS.bind.key("down", @keyHandler)
 
   keyUpHandler: ->
     bttv.log "station key up handler"
