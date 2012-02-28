@@ -14,6 +14,12 @@ class bttv.StationController
     bttv.log "registering key handlers"
     KeyboardJS.bind.key("up", @keyUpHandler)
     KeyboardJS.bind.key("down", @keyDownHandler)
+    KeyboardJS.bind.key("return", @keySelectHandler)
+    KeyboardJS.bind.key("enter", @keySelectHandler)
+
+  keySelectHandler: =>
+    bttv.log "select channel #{bttv.station.get 'selected_channel'}"
+    @handleChannelClicked()
 
   keyUpHandler: ->
     bttv.log "station key up handler"
