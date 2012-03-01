@@ -7,16 +7,16 @@ It just presents a menu of channels and then you can view/stream an episode from
 
 
 TODO
-- keyboard handling to get to channels page
-- channel viewing page
+- make channel viewing page work, at least on emulator, ideally in browser too
 - integrate sample vid code "as is", should mean rss show list will work
-- more generic keyboard handling?
+- video is slightly off too high/low...
+- back button from channel page to station
+- CSS to highlight currently selected channel on station/home page
+- rebrand to British Tech News, new logos/titles
 
 TODO LATER
 - get BTN page background
-- better "loading" animation
-- middleman build / not minifying/combining js files...
-- use jQuery Deferred's for the async startup stuff, perhaps... or futureJS - https://github.com/coolaj86/futures
+- better "loading" animation/intro gifs/video
 - refactor layout - put top/bottom in layout, so that minimum in index.html
 - reload page now and then to ensure latest shown - https://developer.mozilla.org/en/DOM/window.setInterval
 

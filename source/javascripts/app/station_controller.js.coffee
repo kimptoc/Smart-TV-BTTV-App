@@ -2,6 +2,7 @@ class bttv.StationController
   handleChannelClicked: ->
     #todo - pass in model of selected channel
     $("#loading-message").html(Serenade.render('channel',bttv.station, bttv.station_controller))
+    Main.onLoad()
 
   handleShowStations: ->
     $("#loading-message").html(Serenade.render('allinone',bttv.station, bttv.station_controller))
