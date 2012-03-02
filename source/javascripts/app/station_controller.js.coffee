@@ -16,9 +16,10 @@ class bttv.StationController
 
   registerKeys: ->
     bttv.log "registering key handlers"
+    KeyboardJS.unbind.key("all")
     KeyboardJS.bind.key("up", @keyUpHandler)
     KeyboardJS.bind.key("down", @keyDownHandler)
-    KeyboardJS.bind.key("return", @keyBackHandler)
+#    KeyboardJS.bind.key("return", @keyBackHandler)
     KeyboardJS.bind.key("enter", @keySelectHandler)
 
   keySelectHandler: =>

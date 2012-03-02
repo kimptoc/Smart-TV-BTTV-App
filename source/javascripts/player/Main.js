@@ -48,7 +48,7 @@ Main.onLoad = function()
         Server.fetchVideoList(); /* Request video information from server */
 
         // Enable key event processing
-        this.enableKeys();
+        Main.enableKeys();
 
 //        bttv.widgetAPI.sendReadyEvent();
     }
@@ -65,100 +65,80 @@ Main.onUnload = function()
 
 Main.updateCurrentVideo = function(move)
 {
-    Player.setVideoURL( Data.getVideoURL(this.selectedVideo) );
+    Player.setVideoURL( Data.getVideoURL(Main.selectedVideo) );
     
-    Display.setVideoListPosition(this.selectedVideo, move);
+    Display.setVideoListPosition(Main.selectedVideo, move);
 
-    Display.setDescription( Data.getVideoDescription(this.selectedVideo));
+    Display.setDescription( Data.getVideoDescription(Main.selectedVideo));
 }
 
 Main.enableKeys = function()
 {
-    document.getElementById("anchor").focus();
-}
-
-Main.keyDown = function()
-{
-    var keyCode = event.keyCode;
-    bttv.log("Key pressed: " + keyCode);
-    
-    switch(keyCode)
-    {
-        case bttv.tvKey.KEY_RETURN:
-        case bttv.tvKey.KEY_PANEL_RETURN:
-            bttv.log("RETURN");
-            Player.stopVideo();
-            bttv.widgetAPI.sendReturnEvent(); 
-            break;    
-            break;
-    
-        case bttv.tvKey.KEY_PLAY:
-            bttv.log("PLAY");
-            
-            this.handlePlayKey();
-            break;
-            
-        case bttv.tvKey.KEY_STOP:
-            bttv.log("STOP");
-            Player.stopVideo();
-            break;
-            
-        case bttv.tvKey.KEY_PAUSE:
-            bttv.log("PAUSE");
-            this.handlePauseKey();
-            break;
-            
-        case bttv.tvKey.KEY_FF:
-            bttv.log("FF");
-            if(Player.getState() != Player.PAUSED)
-                Player.skipForwardVideo();
-            break;
-        
-        case bttv.tvKey.KEY_RW:
-            bttv.log("RW");
-            if(Player.getState() != Player.PAUSED)
-                Player.skipBackwardVideo();
-            break;
-
-        case bttv.tvKey.KEY_VOL_UP:
-        case bttv.tvKey.KEY_PANEL_VOL_UP:
-            bttv.log("VOL_UP");
-            if(this.mute == 0)
-                Audio.setRelativeVolume(0);
-            break;
-            
-        case bttv.tvKey.KEY_VOL_DOWN:
-        case bttv.tvKey.KEY_PANEL_VOL_DOWN:
-            bttv.log("VOL_DOWN");
-            if(this.mute == 0)
-                Audio.setRelativeVolume(1);
-            break;      
-
-        case bttv.tvKey.KEY_DOWN:
-            bttv.log("DOWN");
-            this.selectNextVideo(this.DOWN);
-            break;
-            
-        case bttv.tvKey.KEY_UP:
-            bttv.log("UP");
-            this.selectPreviousVideo(this.UP);
-            break;            
-
-        case bttv.tvKey.KEY_ENTER:
-        case bttv.tvKey.KEY_PANEL_ENTER:
-            bttv.log("ENTER");
-            this.toggleMode();
-            break;
-        
-        case bttv.tvKey.KEY_MUTE:
-            bttv.log("MUTE");
-            this.muteMode();
-            break;
-            
-        default:
-            bttv.log("Unhandled key");
-            break;
-    }
+    bttv.log("Main.enableKeys");
+    KeyboardJS.unbind.key("all")
+//    document.getElementById("anchor").focus();
+    var returnKeyHandler = function() {
+        bttv.log("RETURN");
+        Player.stopVideo();
+        bttv.widgetAPI.sendReturnEvent();
+        bttv.station_controller.handleShowStations()
+    };
+    KeyboardJS.bind.key("return", returnKeyHandler );
+    KeyboardJS.bind.key("panel_return", returnKeyHandler );
+    KeyboardJS.bind.key("play", function() {
+        bttv.log("PLAY");
+        Main.handlePlayKey();
+    } );
+    KeyboardJS.bind.key("stop", function() {
+        bttv.log("STOP");
+        Player.stopVideo();
+    } );
+    KeyboardJS.bind.key("pause", function() {
+        bttv.log("PAUSE");
+        Main.handlePauseKey();
+    } );
+    KeyboardJS.bind.key("ff", function() {
+        bttv.log("FF");
+        if(Player.getState() != Player.PAUSED)
+            Player.skipForwardVideo();
+    } );
+    KeyboardJS.bind.key("rw", function() {
+        bttv.log("RW");
+        if(Player.getState() != Player.PAUSED)
+            Player.skipBackwardVideo();
+    } );
+    var volUpHandler = function() {
+        bttv.log("VOL_UP");
+        if(Main.mute == 0)
+            Audio.setRelativeVolume(0);
+    };
+    KeyboardJS.bind.key("vol_up", volUpHandler);
+    KeyboardJS.bind.key("panel_vol_up", volUpHandler);
+    var volDownHandler = function() {
+        bttv.log("VOL_DOWN");
+        if(Main.mute == 0)
+            Audio.setRelativeVolume(1);
+    };
+    KeyboardJS.bind.key("vol_down", volDownHandler);
+    KeyboardJS.bind.key("panel_vol_down", volDownHandler);
+    KeyboardJS.bind.key("down", function() {
+        bttv.log("DOWN");
+        Main.selectNextVideo(Main.DOWN);
+    } );
+    KeyboardJS.bind.key("up", function() {
+        bttv.log("UP");
+        Main.selectPreviousVideo(Main.UP);
+    } );
+    var enterKeyHandler = function() {
+        bttv.log("ENTER");
+        Main.toggleMode();
+    };
+    KeyboardJS.bind.key("enter", enterKeyHandler );
+    KeyboardJS.bind.key("panel_enter", enterKeyHandler );
+    KeyboardJS.bind.key("mute", function() {
+        bttv.log("MUTE");
+        Main.muteMode();
+    } );
 }
 
 Main.handlePlayKey = function()
@@ -197,44 +177,44 @@ Main.selectNextVideo = function(down)
 {
     Player.stopVideo();
     
-    this.selectedVideo = (this.selectedVideo + 1) % Data.getVideoCount();
+    Main.selectedVideo = (Main.selectedVideo + 1) % Data.getVideoCount();
 
-    this.updateCurrentVideo(down);
+    Main.updateCurrentVideo(down);
 }
 
 Main.selectPreviousVideo = function(up)
 {
     Player.stopVideo();
     
-    if (--this.selectedVideo < 0)
+    if (--Main.selectedVideo < 0)
     {
-        this.selectedVideo += Data.getVideoCount();
+        Main.selectedVideo += Data.getVideoCount();
     }
 
-    this.updateCurrentVideo(up);
+    Main.updateCurrentVideo(up);
 }
 
 Main.setFullScreenMode = function()
 {
-    if (this.mode != this.FULLSCREEN)
+    if (Main.mode != Main.FULLSCREEN)
     {
         Display.hide();
         
         Player.setFullscreen();
         
-        this.mode = this.FULLSCREEN;
+        Main.mode = Main.FULLSCREEN;
     }
 }
 
 Main.setWindowMode = function()
 {
-    if (this.mode != this.WINDOW)
+    if (Main.mode != Main.WINDOW)
     {
         Display.show();
         
         Player.setWindow();
         
-        this.mode = this.WINDOW;
+        Main.mode = Main.WINDOW;
     }
 }
 
@@ -244,14 +224,14 @@ Main.toggleMode = function()
     {
         Player.resumeVideo();
      }
-    switch (this.mode)
+    switch (Main.mode)
     {
-        case this.WINDOW:
-            this.setFullScreenMode();
+        case Main.WINDOW:
+            Main.setFullScreenMode();
             break;
             
-        case this.FULLSCREEN:
-            this.setWindowMode();
+        case Main.FULLSCREEN:
+            Main.setWindowMode();
             break;
             
         default:
@@ -263,39 +243,39 @@ Main.toggleMode = function()
 
 Main.setMuteMode = function()
 {
-    if (this.mute != this.YMUTE)
+    if (Main.mute != Main.YMUTE)
     {
         var volumeElement = document.getElementById("volumeInfo");
 		Audio.plugin.SetUserMute(true);
         document.getElementById("volumeBar").style.backgroundImage = "url(Images/videoBox/muteBar.png)";
         document.getElementById("volumeIcon").style.backgroundImage = "url(Images/videoBox/mute.png)";
         bttv.widgetAPI.putInnerHTML(volumeElement, "MUTE");
-        this.mute = this.YMUTE;
+        Main.mute = Main.YMUTE;
     }
 }
 
 Main.noMuteMode = function()
 {
-    if (this.mute != this.NMUTE)
+    if (Main.mute != Main.NMUTE)
     {
         Audio.plugin.SetUserMute(false);
 		document.getElementById("volumeBar").style.backgroundImage = "url(Images/videoBox/volumeBar.png)";
         document.getElementById("volumeIcon").style.backgroundImage = "url(Images/videoBox/volume.png)";
         Display.setVolume( Audio.getVolume() );
-        this.mute = this.NMUTE;
+        Main.mute = Main.NMUTE;
     }
 }
 
 Main.muteMode = function()
 {
-    switch (this.mute)
+    switch (Main.mute)
     {
-        case this.NMUTE:
-            this.setMuteMode();
+        case Main.NMUTE:
+            Main.setMuteMode();
             break;
             
-        case this.YMUTE:
-            this.noMuteMode();
+        case Main.YMUTE:
+            Main.noMuteMode();
             break;
             
         default:

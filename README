@@ -7,9 +7,10 @@ It just presents a menu of channels and then you can view/stream an episode from
 
 
 TODO
-- whole page is slightly off too high/low...
-- when go back to station page video bit still showing
-- keyboard handling - need to switch between station/channel handling
+- when go back to station page video bit still showing, sometimes :(
+- whole page is slightly off too high/low... video space is too high, but controls go off bottom of page
+- when go to channel second time not loading/showing episodes
+- what does enter key do? disable it? seems to not do anything useful
 - CSS to highlight currently selected channel on station/home page
 - rebrand to British Tech News, new logos/titles
 
@@ -18,6 +19,7 @@ TODO LATER
 - better "loading" animation/intro gifs/video
 - refactor layout - put top/bottom in layout, so that minimum in index.html
 - reload page now and then to ensure latest shown - https://developer.mozilla.org/en/DOM/window.setInterval
+- preload episode list for all channels to make channel page quicker
 
 - only works on 2012 samsung, see if can make it work on 2011/2010 models?
 
