@@ -7,10 +7,9 @@ It just presents a menu of channels and then you can view/stream an episode from
 
 
 TODO
-- make channel viewing page work, at least on emulator, ideally in browser too
-- integrate sample vid code "as is", should mean rss show list will work
-- video is slightly off too high/low...
-- back button from channel page to station
+- whole page is slightly off too high/low...
+- when go back to station page video bit still showing
+- keyboard handling - need to switch between station/channel handling
 - CSS to highlight currently selected channel on station/home page
 - rebrand to British Tech News, new logos/titles
 

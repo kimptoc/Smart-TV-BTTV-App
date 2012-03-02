@@ -1,7 +1,10 @@
 class bttv.StationController
   handleChannelClicked: ->
     #todo - pass in model of selected channel
-    $("#loading-message").html(Serenade.render('channel',bttv.station, bttv.station_controller))
+    selected_channel = bttv.station.channels.get(bttv.station.get "selected_channel")
+    $("#loading-message").html(Serenade.render('channel',selected_channel, bttv.station_controller))
+    #todo set Server.url to feed url
+    Server.url = selected_channel.get "rss_feed_url"
     Main.onLoad()
 
   handleShowStations: ->
@@ -15,12 +18,15 @@ class bttv.StationController
     bttv.log "registering key handlers"
     KeyboardJS.bind.key("up", @keyUpHandler)
     KeyboardJS.bind.key("down", @keyDownHandler)
-    KeyboardJS.bind.key("return", @keySelectHandler)
+    KeyboardJS.bind.key("return", @keyBackHandler)
     KeyboardJS.bind.key("enter", @keySelectHandler)
 
   keySelectHandler: =>
     bttv.log "select channel #{bttv.station.get 'selected_channel'}"
     @handleChannelClicked()
+
+  keyBackHandler: =>
+    @handleShowStations()
 
   keyUpHandler: ->
     bttv.log "station key up handler"
