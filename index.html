@@ -21,43 +21,46 @@
 
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
 
-  <link rel="stylesheet" href="css/style.css">
-  <link href="" id="app_stylesheet" rel="stylesheet" type="text/css" />
+  <link href="" id="app_stylesheet1" rel="stylesheet" type="text/css" />
+  <link href="" id="app_stylesheet2" rel="stylesheet" type="text/css" />
 
   <!-- Common App API -->
   <script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common//API/Widget.js'></script>
   <script type='text/javascript' language='javascript' src='$MANAGER_WIDGET/Common//API/TVKeyValue.js'></script>
+  <script type='text/javascript' src='http://cdn.flurry.com/js/flurry.js'></script>
 
   <!-- More ideas for your <head> here: h5bp.com/d/head-Tips -->
 
   <!-- All JavaScript at the bottom, except this Modernizr build incl. Respond.js
        Respond is a polyfill for min/max-width media queries. Modernizr enables HTML5 elements & feature detects; 
        for optimal performance, create your own custom Modernizr build: www.modernizr.com/download/ -->
-  <!--<script src="js/libs/modernizr-2.0.6.min.js"></script>-->
+  <!--<script src="javascripts/libs/modernizr-2.0.6.min.js"></script>-->
+
+  <!-- Plugins -->
+  <object id="pluginPlayer" classid="clsid:SAMSUNG-INFOLINK-PLAYER" style="border:none; width:0px;height:0px;"></object>
+  <object id="pluginAudio" classid="clsid:SAMSUNG-INFOLINK-AUDIO" style="border:none; width:0px;height:0px;"></object>
+  <object id="pluginTVMW" classid="clsid:SAMSUNG-INFOLINK-TVMW" style="border:none; width:0px;height:0px;"></object>
+
+
 </head>
 
-<body onload="app.startup();" >
+<body>
 
   <!-- JavaScript at the bottom for fast page loading -->
 
   <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
   <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>-->
-  <!--<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>-->
+  <!--<script>window.jQuery || document.write('<script src="javascripts/libs/jquery-1.6.2.min.js"><\/script>')</script>-->
 
   <div id="loading-message"><br>This site requires Javascript to be enabled in order for it to work</div>
 
   <!-- scripts concatenated and minified via build script -->
-  <!--<script defer src="js/plugins.js"></script>-->
-  <!--<script defer src="js/script.js"></script>-->
-  <script defer src="js/serenade.js"></script>
-  <script defer src="js/jquery-1.7.1.js"></script>
-  <script defer src="js/app.js"></script>
-  <script defer src="js/config.js"></script>
-  <script defer src="js/samsung.js"></script>
-  <script defer src="js/app/view_loader.js"></script>
-  <script defer src="js/app/config_loader.js"></script>
-  <script defer src="js/app/app_ready.js"></script>
-  <script defer src="js/app/load_views.js"></script>
+  <!--<script defer src="javascripts/plugins.js"></script>-->
+  <!--<script defer src="javascripts/script.js"></script>-->
+
+
+  <script defer src="javascripts/application.js"></script>
+
   <!-- end scripts -->
 
   <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.

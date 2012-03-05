@@ -1,11 +1,13 @@
 (function() {
 
-  app.AppReady = function(p_config_loaded_callback) {
+  bttv.AppReady = function() {
     if (typeof console !== "undefined" && console !== null) {
       console.log("App Ready!");
     }
-    document.getElementById("app_stylesheet").href = "" + (app.station.get("content_url_root")) + "/css/app.css";
-    return $("#loading-message").html(Serenade.render('allinone', app.station));
+    document.getElementById("app_stylesheet").href = "" + (bttv.station.get("content_url_root")) + "/css/app.css";
+    bttv.station_controller = new bttv.StationController();
+    bttv.setupKeymapping();
+    return bttv.station_controller.handleShowStations();
   };
 
 }).call(this);

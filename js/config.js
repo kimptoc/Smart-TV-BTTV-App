@@ -1,1 +1,1 @@
-app.remote_config_url = 'http://bttv.kimptoc.net/Smart-TV-BTTV-Config/channels.json.php';
+bttv.remote_config_url = 'http://localhost/scrap/bttv/channels.json.php';
