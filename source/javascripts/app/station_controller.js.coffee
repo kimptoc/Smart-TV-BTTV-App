@@ -4,7 +4,7 @@ class bttv.StationController
     selected_channel = bttv.station.channels.get(bttv.station.get "selected_channel")
     $("#loading-message").html(Serenade.render('channel',selected_channel, bttv.station_controller))
     #todo set Server.url to feed url
-    Server.url = selected_channel.get "rss_feed_url"
+    Server.url = "#{bttv.station.get("content_url_root")}/feed.php?name=#{selected_channel.get 'rss_feed_name'}"
     Main.onLoad()
 
   handleShowStations: ->

@@ -1,5 +1,6 @@
 window.Server =
   dataReceivedCallback: null
+  XHRObj: null
   url: ""
 
 Server.init = ->
@@ -8,10 +9,19 @@ Server.init = ->
   success
 
 Server.fetchVideoList = ->
-  bttv.log "fetching video list"
+  bttv.log "fetching video list", @url
   return $.ajax @url, dataType:"xml", complete: (-> console?.log "c"), error: ((x,t,e)-> console?.log x,t,e), success:(data)->
-    bttv.log "got response from server re: video list"
+    bttv.log "got response from server re: video list", data
     Server.createVideoList(data)
+#  Server.XHRObj = new XMLHttpRequest()
+#  if Server.XHRObj
+#    Server.XHRObj.onreadystatechange = ->
+#      bttv.log "got response from server re: video list", Server.XHRObj
+#      Server.createVideoList(Server.XHRObj.responseXML)  if Server.XHRObj.readyState is 4
+#
+#    Server.XHRObj.open "GET", Server.url
+#    Server.XHRObj.overrideMimeType("text/xml")
+#    Server.XHRObj.send()
 
 Server.createVideoList = (responseXML) ->
   bttv.log "Creating video list ===============================>", responseXML
