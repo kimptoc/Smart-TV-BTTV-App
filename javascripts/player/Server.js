@@ -2,6 +2,7 @@
 
   window.Server = {
     dataReceivedCallback: null,
+    XHRObj: null,
     url: ""
   };
 
@@ -13,7 +14,7 @@
   };
 
   Server.fetchVideoList = function() {
-    bttv.log("fetching video list");
+    bttv.log("fetching video list", this.url);
     return $.ajax(this.url, {
       dataType: "xml",
       complete: (function() {
@@ -23,7 +24,7 @@
         return typeof console !== "undefined" && console !== null ? console.log(x, t, e) : void 0;
       }),
       success: function(data) {
-        bttv.log("got response from server re: video list");
+        bttv.log("got response from server re: video list", data);
         return Server.createVideoList(data);
       }
     });

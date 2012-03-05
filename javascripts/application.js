@@ -12636,6 +12636,7 @@ if (typeof module !== 'undefined' && require.main === module) {
 
   window.Server = {
     dataReceivedCallback: null,
+    XHRObj: null,
     url: ""
   };
 
@@ -12647,7 +12648,7 @@ if (typeof module !== 'undefined' && require.main === module) {
   };
 
   Server.fetchVideoList = function() {
-    bttv.log("fetching video list");
+    bttv.log("fetching video list", this.url);
     return $.ajax(this.url, {
       dataType: "xml",
       complete: (function() {
@@ -12657,7 +12658,7 @@ if (typeof module !== 'undefined' && require.main === module) {
         return typeof console !== "undefined" && console !== null ? console.log(x, t, e) : void 0;
       }),
       success: function(data) {
-        bttv.log("got response from server re: video list");
+        bttv.log("got response from server re: video list", data);
         return Server.createVideoList(data);
       }
     });
@@ -12825,7 +12826,7 @@ if (typeof module !== 'undefined' && require.main === module) {
       var selected_channel;
       selected_channel = bttv.station.channels.get(bttv.station.get("selected_channel"));
       $("#loading-message").html(Serenade.render('channel', selected_channel, bttv.station_controller));
-      Server.url = selected_channel.get("rss_feed_url");
+      Server.url = "" + (bttv.station.get("content_url_root")) + "/feed.php?name=" + (selected_channel.get('rss_feed_name'));
       return Main.onLoad();
     };
 
@@ -12876,7 +12877,7 @@ if (typeof module !== 'undefined' && require.main === module) {
   })();
 
 }).call(this);
-bttv.remote_config_url = 'http://localhost/scrap/bttv/channels.json.php';
+bttv.remote_config_url = 'http://bttv.kimptoc.net/Smart-TV-BTTV-Config/channels.json.php';
 (function() {
 
   bttv.widgetAPI = typeof Common !== "undefined" && Common !== null ? new Common.API.Widget() : void 0;

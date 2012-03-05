@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="31e029fe-2610-404e-a9c3-ae935dcbe88c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/icon/Tutorial_Video_106.png" afterPath="$PROJECT_DIR$/Images/icon/Tutorial_Video_106.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/icon/Tutorial_Video_115.png" afterPath="$PROJECT_DIR$/Images/icon/Tutorial_Video_115.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/icon/Tutorial_Video_85.png" afterPath="$PROJECT_DIR$/Images/icon/Tutorial_Video_85.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Images/icon/Tutorial_Video_95.png" afterPath="$PROJECT_DIR$/Images/icon/Tutorial_Video_95.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app/app_ready.js" afterPath="$PROJECT_DIR$/js/app/app_ready.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app/config_loader.js" afterPath="$PROJECT_DIR$/js/app/config_loader.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app/load_views.js" afterPath="$PROJECT_DIR$/js/app/load_views.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/config.js" afterPath="$PROJECT_DIR$/js/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/samsung.js" afterPath="$PROJECT_DIR$/js/samsung.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/serenade.js" afterPath="$PROJECT_DIR$/js/serenade.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascripts/application.js" afterPath="$PROJECT_DIR$/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascripts/config.js" afterPath="$PROJECT_DIR$/javascripts/config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javascripts/player/Server.js" afterPath="$PROJECT_DIR$/javascripts/player/Server.js" />
     </list>
     <ignored path="bttv.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +30,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="15" selection-start="2788" selection-end="2788" vertical-scroll-proportion="0.0">
+            <state line="56" column="15" selection-start="2857" selection-end="2857" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -47,7 +39,7 @@
       <file leaf-file-name="application.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12851" column="24" selection-start="356465" selection-end="356465" vertical-scroll-proportion="0.028571429">
+            <state line="12851" column="24" selection-start="356398" selection-end="356398" vertical-scroll-proportion="0.028571429">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -191,7 +183,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -333,14 +325,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="15" selection-start="2788" selection-end="2788" vertical-scroll-proportion="0.0">
+        <state line="56" column="15" selection-start="2857" selection-end="2857" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12851" column="24" selection-start="356465" selection-end="356465" vertical-scroll-proportion="0.028571429">
+        <state line="12851" column="24" selection-start="356398" selection-end="356398" vertical-scroll-proportion="0.028571429">
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
