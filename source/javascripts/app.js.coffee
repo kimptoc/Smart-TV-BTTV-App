@@ -10,6 +10,7 @@ jQuery ->
 #  alert("my onload")
 #  tmpl = $("#app").html()
 #  console.log tmpl
+  $('#intro-image').fadeIn 1000
 
   bttv.startup()
 

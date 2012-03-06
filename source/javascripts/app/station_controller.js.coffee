@@ -5,6 +5,7 @@ class bttv.StationController
     $("#loading-message").html(Serenade.render('channel',selected_channel, bttv.station_controller))
     #todo set Server.url to feed url
     Server.url = "#{bttv.station.get("content_url_root")}/feed.php?name=#{selected_channel.get 'rss_feed_name'}"
+#    Server.url = "http://localhost/scrap/bttv/samples/bageltechmac_rss.xml.php"
     Main.onLoad()
 
   handleShowStations: ->
