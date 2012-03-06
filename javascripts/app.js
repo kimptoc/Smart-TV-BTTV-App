@@ -10,6 +10,7 @@
   };
 
   jQuery(function() {
+    $('#intro-image').fadeIn(1000);
     return bttv.startup();
   });
 

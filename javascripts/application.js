@@ -12704,7 +12704,9 @@ if (typeof module !== 'undefined' && require.main === module) {
     document.getElementById("app_stylesheet2").href = "" + (bttv.station.get("content_url_root")) + "/css/app.css";
     bttv.station_controller = new bttv.StationController();
     bttv.setupKeymapping();
-    return bttv.station_controller.handleShowStations();
+    return $('#intro-image').fadeOut(1000, function() {
+      return bttv.station_controller.handleShowStations();
+    });
   };
 
 }).call(this);
@@ -12877,7 +12879,7 @@ if (typeof module !== 'undefined' && require.main === module) {
   })();
 
 }).call(this);
-bttv.remote_config_url = 'http://bttv.kimptoc.net/Smart-TV-BTTV-Config/channels.json.php';
+bttv.remote_config_url = 'http://localhost/scrap/bttv/channels.json.php';
 (function() {
 
   bttv.widgetAPI = typeof Common !== "undefined" && Common !== null ? new Common.API.Widget() : void 0;
@@ -12904,6 +12906,7 @@ bttv.remote_config_url = 'http://bttv.kimptoc.net/Smart-TV-BTTV-Config/channels.
   };
 
   jQuery(function() {
+    $('#intro-image').fadeIn(1000);
     return bttv.startup();
   });
 
