@@ -1,4 +1,13 @@
 class bttv.StationController
+
+  highlightChannel: (chan_id) ->
+    $("##{bttv.get_buid(chan_id+1)} img").addClass("channel_logo_selected")
+    $("##{bttv.get_buid(chan_id+1)} img").removeClass("channel_logo_notselected")
+
+  unhighlightChannel: (chan_id) ->
+    $("##{bttv.get_buid(chan_id+1)} img").removeClass("channel_logo_selected")
+    $("##{bttv.get_buid(chan_id+1)} img").addClass("channel_logo_notselected")
+
   handleChannelClicked: ->
     #todo - pass in model of selected channel
     selected_channel = bttv.station.channels.get(bttv.station.get "selected_channel")
@@ -10,6 +19,8 @@ class bttv.StationController
 
   handleShowStations: ->
     $("#loading-message").html(Serenade.render('allinone',bttv.station, bttv.station_controller))
+    current_chan = bttv.station.get "selected_channel"
+    @highlightChannel(current_chan)
     @registerKeys()
 
   keyHandler: ->
@@ -19,7 +30,9 @@ class bttv.StationController
     bttv.log "registering key handlers"
     KeyboardJS.unbind.key("all")
     KeyboardJS.bind.key("up", @keyUpHandler)
+    KeyboardJS.bind.key("left", @keyUpHandler)
     KeyboardJS.bind.key("down", @keyDownHandler)
+    KeyboardJS.bind.key("right", @keyDownHandler)
 #    KeyboardJS.bind.key("return", @keyBackHandler)
     KeyboardJS.bind.key("enter", @keySelectHandler)
 
@@ -30,14 +43,20 @@ class bttv.StationController
   keyBackHandler: =>
     @handleShowStations()
 
-  keyUpHandler: ->
+  keyUpHandler: =>
     bttv.log "station key up handler"
-    sel_chan = -1 + bttv.station.get "selected_channel"
+    current_chan = bttv.station.get "selected_channel"
+    sel_chan = -1 + current_chan
     if sel_chan >= 0
+      @unhighlightChannel(current_chan)
       bttv.station.set "selected_channel", sel_chan
+      @highlightChannel(sel_chan)
 
-  keyDownHandler: ->
+  keyDownHandler: =>
     bttv.log "station key down handler"
-    sel_chan = 1 + bttv.station.get "selected_channel"
+    current_chan = bttv.station.get "selected_channel"
+    sel_chan = 1 + current_chan
     if sel_chan < bttv.station.channels.length
+      @unhighlightChannel(current_chan)
       bttv.station.set "selected_channel", sel_chan
+      @highlightChannel(sel_chan)
