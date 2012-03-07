@@ -18,6 +18,7 @@ class bttv.StationController
     Main.onLoad()
 
   handleShowStations: ->
+    Main.onUnload()
     $("#loading-message").html(Serenade.render('allinone',bttv.station, bttv.station_controller))
     current_chan = bttv.station.get "selected_channel"
     @highlightChannel(current_chan)

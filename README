@@ -5,13 +5,15 @@ http://kimptoc.github.com/Smart-TV-BTTV-App/
 
 It just presents a menu of channels and then you can view/stream an episode from a selected channel.
 
+NOTES:
+- the mouse clicks seems to work, but dont - so dont use the mouse, use keyboard, eg like remote control
 
 TODO
 - when go back to station page video bit still showing, sometimes :(
+- should return from station page exit app?
 - what does enter key do? disable it? seems to not do anything useful
-- CSS to highlight currently selected channel on station/home page
 - rebrand to British Tech News, new logos/titles
-- whole page is slightly off too high/low... video space is too high, but controls go off bottom of page
+- fixed, maybe: whole page is slightly off too high/low... video space is too high, but controls go off bottom of page
 
 TODO LATER
 - get BTN page background

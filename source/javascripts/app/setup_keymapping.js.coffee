@@ -13,6 +13,8 @@ bttv.setupKeymapping = ->
       "panel_vol_up" : bttv.tvKey.KEY_PANEL_VOL_UP
       "vol_down" : bttv.tvKey.KEY_VOL_DOWN
       "panel_vol_down" : bttv.tvKey.KEY_PANEL_VOL_DOWN
+      "left" : bttv.tvKey.KEY_LEFT
+      "right" : bttv.tvKey.KEY_RIGHT
       "down" : bttv.tvKey.KEY_DOWN
       "up" : bttv.tvKey.KEY_UP
       "enter" : bttv.tvKey.KEY_ENTER
