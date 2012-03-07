@@ -4,9 +4,21 @@
   bttv.StationController = (function() {
 
     function StationController() {
+      this.keyDownHandler = __bind(this.keyDownHandler, this);
+      this.keyUpHandler = __bind(this.keyUpHandler, this);
       this.keyBackHandler = __bind(this.keyBackHandler, this);
       this.keySelectHandler = __bind(this.keySelectHandler, this);
     }
+
+    StationController.prototype.highlightChannel = function(chan_id) {
+      $("#" + (bttv.get_buid(chan_id + 1)) + " img").addClass("channel_logo_selected");
+      return $("#" + (bttv.get_buid(chan_id + 1)) + " img").removeClass("channel_logo_notselected");
+    };
+
+    StationController.prototype.unhighlightChannel = function(chan_id) {
+      $("#" + (bttv.get_buid(chan_id + 1)) + " img").removeClass("channel_logo_selected");
+      return $("#" + (bttv.get_buid(chan_id + 1)) + " img").addClass("channel_logo_notselected");
+    };
 
     StationController.prototype.handleChannelClicked = function() {
       var selected_channel;
@@ -17,7 +29,10 @@
     };
 
     StationController.prototype.handleShowStations = function() {
+      var current_chan;
       $("#loading-message").html(Serenade.render('allinone', bttv.station, bttv.station_controller));
+      current_chan = bttv.station.get("selected_channel");
+      this.highlightChannel(current_chan);
       return this.registerKeys();
     };
 
@@ -29,7 +44,9 @@
       bttv.log("registering key handlers");
       KeyboardJS.unbind.key("all");
       KeyboardJS.bind.key("up", this.keyUpHandler);
+      KeyboardJS.bind.key("left", this.keyUpHandler);
       KeyboardJS.bind.key("down", this.keyDownHandler);
+      KeyboardJS.bind.key("right", this.keyDownHandler);
       return KeyboardJS.bind.key("enter", this.keySelectHandler);
     };
 
@@ -43,18 +60,26 @@
     };
 
     StationController.prototype.keyUpHandler = function() {
-      var sel_chan;
+      var current_chan, sel_chan;
       bttv.log("station key up handler");
-      sel_chan = -1 + bttv.station.get("selected_channel");
-      if (sel_chan >= 0) return bttv.station.set("selected_channel", sel_chan);
+      current_chan = bttv.station.get("selected_channel");
+      sel_chan = -1 + current_chan;
+      if (sel_chan >= 0) {
+        this.unhighlightChannel(current_chan);
+        bttv.station.set("selected_channel", sel_chan);
+        return this.highlightChannel(sel_chan);
+      }
     };
 
     StationController.prototype.keyDownHandler = function() {
-      var sel_chan;
+      var current_chan, sel_chan;
       bttv.log("station key down handler");
-      sel_chan = 1 + bttv.station.get("selected_channel");
+      current_chan = bttv.station.get("selected_channel");
+      sel_chan = 1 + current_chan;
       if (sel_chan < bttv.station.channels.length) {
-        return bttv.station.set("selected_channel", sel_chan);
+        this.unhighlightChannel(current_chan);
+        bttv.station.set("selected_channel", sel_chan);
+        return this.highlightChannel(sel_chan);
       }
     };
 
