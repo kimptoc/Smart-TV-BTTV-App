@@ -9,18 +9,23 @@ NOTES:
 - the mouse clicks seems to work, but dont - so dont use the mouse, use keyboard, eg like remote control
 
 TODO
-- when go back to station page video bit still showing, sometimes :(
+- up/down episode not highlighting selection, but desc is changing
 - should return from station page exit app?
-- what does enter key do? disable it? seems to not do anything useful
+- handle no internet nicely
+
 - rebrand to British Tech News, new logos/titles
+- fixed, i think: when go back to station page video bit still showing, sometimes :(
 - fixed, maybe: whole page is slightly off too high/low... video space is too high, but controls go off bottom of page
 
 TODO LATER
+- Load/structurce css so that its not cached...
 - get BTN page background
 - better "loading" animation/intro gifs/video
 - refactor layout - put top/bottom in layout, so that minimum in index.html
 - reload page now and then to ensure latest shown - https://developer.mozilla.org/en/DOM/window.setInterval
 - preload episode list for all channels to make channel page quicker
+- return when in full screen, switches to non-full screen (not station listing)
+- what does enter key do? disable it? seems to not do anything useful
 
 - only works on 2012 samsung, see if can make it work on 2011/2010 models?
 

@@ -31,7 +31,11 @@ Player.init = ->
 
 Player.deinit = ->
   bttv.log "Player deinit !!! "
-  @plugin?.Stop()  if @plugin
+  if @plugin
+    @plugin?.Stop()
+#    @plugin?.ClearScreen()
+    @plugin?.SetDisplayArea 0, 0, 0, 0
+    @plugin = null
 
 Player.setWindow = ->
   @plugin?.SetDisplayArea? 458, 58, 472, 270
