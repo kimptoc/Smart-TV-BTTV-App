@@ -98,9 +98,9 @@ Display.setVideoListPosition = (position, move) ->
 
     while i < Data.getVideoCount()
       if i is position
-        @videoList[i].style.backgroundImage = "url(#{bttv.station.get("content_url_root")}/Images/listBox/selector.png)"
+        @videoList[i].css("background-image",  "url(#{bttv.station.get("content_url_root")}/Images/listBox/selector.png)")
       else
-        @videoList[i].style.backgroundImage = "url(none)"
+        @videoList[i].css("background-image",  "url(none)")
       i++
   else if (@currentWindow isnt @LASTIDX and move is Main.DOWN) or (@currentWindow isnt @FIRSTIDX and move is Main.UP)
     if move is Main.DOWN
@@ -111,9 +111,9 @@ Display.setVideoListPosition = (position, move) ->
 
     while i <= @LASTIDX
       if i is @currentWindow
-        @videoList[i].style.backgroundImage = "url(Images/listBox/selector.png)"
+        @videoList[i].css("background-image",  "url(#{bttv.station.get("content_url_root")}/Images/listBox/selector.png)")
       else
-        @videoList[i].style.backgroundImage = "url(none)"
+        @videoList[i].css("background-image",  "url(none)")
       i++
   else if @currentWindow is @LASTIDX and move is Main.DOWN
     if position is @FIRSTIDX
@@ -123,9 +123,9 @@ Display.setVideoListPosition = (position, move) ->
         listHTML = Data.videoNames[i]
         bttv.widgetAPI.putInnerHTML @videoList[i], listHTML
         if i is @currentWindow
-          @videoList[i].style.backgroundImage = "url(Images/listBox/selector.png)"
+          @videoList[i].css("background-image",  "url(#{bttv.station.get("content_url_root")}/Images/listBox/selector.png)")
         else
-          @videoList[i].style.backgroundImage = "url(none)"
+          @videoList[i].css("background-image",  "url(none)")
         i++
     else
       i = 0
@@ -141,9 +141,9 @@ Display.setVideoListPosition = (position, move) ->
         listHTML = Data.videoNames[i + position - @currentWindow]
         bttv.widgetAPI.putInnerHTML @videoList[i], listHTML
         if i is @currentWindow
-          @videoList[i].style.backgroundImage = "url(Images/listBox/selector.png)"
+          @videoList[i].css("background-image",  "url(#{bttv.station.get("content_url_root")}/Images/listBox/selector.png)")
         else
-          @videoList[i].style.backgroundImage = "url(none)"
+          @videoList[i].css("background-image",  "url(none)")
         i++
     else
       i = 0
