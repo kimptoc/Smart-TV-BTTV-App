@@ -9,10 +9,11 @@ NOTES:
 - the mouse clicks seems to work, but dont - so dont use the mouse, use keyboard, eg like remote control
 
 TODO
-- up/down episode not highlighting selection, but desc is changing
+- episode count/pos still funny, esp when you go down/off the page
 - should return from station page exit app?
 - handle no internet nicely
 
+- fixed? x / y selected episode, wrap issue when ep >9
 - rebrand to British Tech News, new logos/titles
 - fixed, i think: when go back to station page video bit still showing, sometimes :(
 - fixed, maybe: whole page is slightly off too high/low... video space is too high, but controls go off bottom of page
