@@ -1,17 +1,1 @@
-(function() {
-
-  bttv.startup = function() {
-    bttv.log("app startup");
-    $("#loading-message").html("<br>Starting Bagel Tech TV...");
-    if (typeof FlurryAgent !== "undefined" && FlurryAgent !== null) {
-      FlurryAgent.startSession("FH6WGT678Y3XZ6HSN7XP");
-    }
-    return bttv.ConfigLoader().pipe(bttv.LoadViews).then(bttv.AppReady);
-  };
-
-  jQuery(function() {
-    $('#intro-image').fadeIn(1000);
-    return bttv.startup();
-  });
-
-}).call(this);
+((function(){bttv.startup=function(){return bttv.log("app startup"),$("#loading-message").html("<br>Starting Bagel Tech TV..."),typeof FlurryAgent!="undefined"&&FlurryAgent!==null&&FlurryAgent.startSession("FH6WGT678Y3XZ6HSN7XP"),bttv.ConfigLoader().pipe(bttv.LoadViews).then(bttv.AppReady)},jQuery(function(){return $("#intro-image").fadeIn(1e3),bttv.startup()})})).call(this)
