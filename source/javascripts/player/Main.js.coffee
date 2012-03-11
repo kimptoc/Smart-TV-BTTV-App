@@ -149,11 +149,10 @@ Main.toggleMode = ->
 
 Main.setMuteMode = ->
   unless Main.mute is Main.YMUTE
-    volumeElement = document.getElementById("volumeInfo")
     Audio.plugin.SetUserMute true
     document.getElementById("volumeBar").style.backgroundImage = "url(Images/videoBox/muteBar.png)"
     document.getElementById("volumeIcon").style.backgroundImage = "url(Images/videoBox/mute.png)"
-    bttv.widgetAPI.putInnerHTML volumeElement, "MUTE"
+    $("volumeInfo").html("MUTE")
     Main.mute = Main.YMUTE
 
 Main.noMuteMode = ->

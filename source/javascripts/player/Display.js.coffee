@@ -9,7 +9,7 @@ window.Display =
 
 Display.init = ->
   success = true
-  @statusDiv = document.getElementById("status")
+  @statusDiv = $("#status")
   success = false  unless @statusDiv
   success
 
@@ -65,7 +65,7 @@ Display.setTime = (time) ->
 
 Display.status = (status) ->
   bttv.log status
-  bttv.widgetAPI.putInnerHTML @statusDiv, status
+  @statusDiv.html(status)
 
 Display.setVolume = (level) ->
   bttv.log "setVol/1"
@@ -121,7 +121,7 @@ Display.setVideoListPosition = (position, move) ->
       i = 0
       while i <= @LASTIDX
         listHTML = Data.videoNames[i]
-        bttv.widgetAPI.putInnerHTML @videoList[i], listHTML
+        @videoList[i].html(listHTML)
         if i is @currentWindow
           @videoList[i].css("background-image",  "url(#{bttv.station.get("content_url_root")}/Images/listBox/selector.png)")
         else
@@ -131,7 +131,7 @@ Display.setVideoListPosition = (position, move) ->
       i = 0
       while i <= @LASTIDX
         listHTML = Data.videoNames[i + position - @currentWindow]
-        bttv.widgetAPI.putInnerHTML @videoList[i], listHTML
+        @videoList[i].html(listHTML)
         i++
   else if @currentWindow is @FIRSTIDX and move is Main.UP
     if position is Data.getVideoCount() - 1
@@ -139,7 +139,7 @@ Display.setVideoListPosition = (position, move) ->
       i = 0
       while i <= @LASTIDX
         listHTML = Data.videoNames[i + position - @currentWindow]
-        bttv.widgetAPI.putInnerHTML @videoList[i], listHTML
+        @videoList[i].html(listHTML)
         if i is @currentWindow
           @videoList[i].css("background-image",  "url(#{bttv.station.get("content_url_root")}/Images/listBox/selector.png)")
         else
@@ -149,7 +149,7 @@ Display.setVideoListPosition = (position, move) ->
       i = 0
       while i <= @LASTIDX
         listHTML = Data.videoNames[i + position]
-        bttv.widgetAPI.putInnerHTML @videoList[i], listHTML
+        @videoList[i].html(listHTML)
         i++
 
 Display.setDescription = (description) ->
