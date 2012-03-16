@@ -9,19 +9,18 @@ NOTES:
 - the mouse clicks seems to work, but dont - so dont use the mouse, use keyboard, eg like remote control
 
 TODO
-- handle no internet nicely, at startup
-- handle no internet nicely, after starting, while trying to get episodes
-- enter on episode list goes to full screen, but when play is pressed, screen is not full screen
 - reset episode position number on change of channel
+- enter on episode list goes to full screen, but when play is pressed, screen is not full screen
 - should return from station page exit app?
-- return key on website not returning
 
+- fixed? esc/return key on website not returning
 - fixed? x / y selected episode, wrap issue when ep >9
 - rebrand to British Tech News, new logos/titles
 - fixed, i think: when go back to station page video bit still showing, sometimes :(
 - fixed, maybe: whole page is slightly off too high/low... video space is too high, but controls go off bottom of page
 
 TODO LATER
+- when no episodes returned, still can go up/down, selected episode num changes.. stop that
 - autostart first episode on selecting a channel
 - Load/structurce css so that its not cached...
 - get BTN page background
