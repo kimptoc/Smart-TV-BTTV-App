@@ -16,6 +16,7 @@ Main.onLoad = ->
     bttv.log "Main.onLoad, volume sorted"
     Display.setTime 0
     bttv.log "Main.onLoad, time sorted"
+    Main.selectedVideo = 0
     Player.stopCallback = ->
       Main.setWindowMode()
 

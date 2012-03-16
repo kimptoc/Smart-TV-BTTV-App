@@ -13,6 +13,10 @@ window.Player =
 Player.init = ->
   success = true
   bttv.log "init success vale :  " + success
+  Player.state = -1
+  Player.skipState = -1
+  Player.stopCallback = null
+  Player.originalSource = null
   @state = @STOPPED
   @plugin = document.getElementById("pluginPlayer")
   unless @plugin
@@ -21,11 +25,11 @@ Player.init = ->
   bttv.log "init/2 success vale :  " + success
   @setWindow()
   bttv.log "setWindow success vale :  " + success
-  @plugin.OnCurrentPlayTime = "Player.setCurTime"
-  @plugin.OnStreamInfoReady = "Player.setTotalTime"
-  @plugin.OnBufferingStart = "Player.onBufferingStart"
-  @plugin.OnBufferingProgress = "Player.onBufferingProgress"
-  @plugin.OnBufferingComplete = "Player.onBufferingComplete"
+  @plugin?.OnCurrentPlayTime = "Player.setCurTime"
+  @plugin?.OnStreamInfoReady = "Player.setTotalTime"
+  @plugin?.OnBufferingStart = "Player.onBufferingStart"
+  @plugin?.OnBufferingProgress = "Player.onBufferingProgress"
+  @plugin?.OnBufferingComplete = "Player.onBufferingComplete"
   bttv.log "init/end success vale :  " + success
   success
 
@@ -41,7 +45,7 @@ Player.setWindow = ->
   @plugin?.SetDisplayArea? 458, 58, 472, 270
 
 Player.setFullscreen = ->
-  @plugin?.SetDisplayArea 0, 0, 960, 540
+  @plugin?.SetDisplayArea? 0, 0, 960, 540
 
 Player.setVideoURL = (url) ->
   @url = url
@@ -60,7 +64,7 @@ Player.playVideo = ->
     Display.status "Play"
     @setWindow()
     @plugin.Play @url
-    Audio.plugin.SetSystemMute false
+    Audio.plugin?.SetSystemMute? false
 
 Player.pauseVideo = ->
   @state = @PAUSED
@@ -70,7 +74,7 @@ Player.pauseVideo = ->
   document.getElementById("forward").style.opacity = "0.2"
   document.getElementById("rewind").style.opacity = "0.2"
   Display.status "Pause"
-  @plugin.Pause()
+  @plugin.Pause?()
 
 Player.stopVideo = ->
   unless @state is @STOPPED
@@ -81,7 +85,7 @@ Player.stopVideo = ->
     document.getElementById("forward").style.opacity = "0.2"
     document.getElementById("rewind").style.opacity = "0.2"
     Display.status "Stop"
-    @plugin?.Stop()
+    @plugin?.Stop?()
     Display.setTime 0
     @stopCallback()  if @stopCallback
   else
@@ -95,15 +99,15 @@ Player.resumeVideo = ->
   document.getElementById("forward").style.opacity = "1.0"
   document.getElementById("rewind").style.opacity = "1.0"
   Display.status "Play"
-  @plugin?.Resume()
+  @plugin?.Resume?()
 
 Player.skipForwardVideo = ->
   @skipState = @FORWARD
-  @plugin?.JumpForward 5
+  @plugin?.JumpForward? 5
 
 Player.skipBackwardVideo = ->
   @skipState = @REWIND
-  @plugin?.JumpBackward 5
+  @plugin?.JumpBackward? 5
 
 Player.getState = ->
   @state
@@ -131,7 +135,7 @@ Player.setCurTime = (time) ->
   Display.setTime time
 
 Player.setTotalTime = ->
-  Display.setTotalTime Player.plugin.GetDuration()
+  Display.setTotalTime Player.plugin?.GetDuration?()
 
 onServerError = ->
   Display.status "Server Error!"

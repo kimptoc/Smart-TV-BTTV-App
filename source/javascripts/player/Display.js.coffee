@@ -9,6 +9,7 @@ window.Display =
 
 Display.init = ->
   success = true
+  Display.currentWindow = 0
   @statusDiv = $("#status")
   success = false  unless @statusDiv
   success
