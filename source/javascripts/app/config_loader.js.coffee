@@ -7,7 +7,7 @@ bttv.ConfigLoadError = (x,t,e) ->
     html_part = v.render()
     bttv.log html_part
     $('#intro-image').fadeOut 800, ->
-      $("#loading-message").html(html_part).slabText()
+      $("#loading-message").html(html_part)
 
 bttv.ConfigLoadComplete = ->
   bttv.log "Config Load Complete"
