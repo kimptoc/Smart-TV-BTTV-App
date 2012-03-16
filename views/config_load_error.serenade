@@ -1,0 +1,7 @@
+div
+  hr
+  div.error_header
+    "Unable to connect to the Internet!"
+  hr
+  div.error_text
+    "Please check your settings and then restart the app"
