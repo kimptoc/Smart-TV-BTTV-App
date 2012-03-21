@@ -5,14 +5,14 @@
     <cpname></cpname>
     <cplogo></cplogo>
     <cpauthjs></cpauthjs>
-      <ThumbIcon>Images/icon/Tutorial_Video_106.png</ThumbIcon>
+    <ThumbIcon>Images/icon/Tutorial_Video_106.png</ThumbIcon>
     <BigThumbIcon>Images/icon/Tutorial_Video_115.png</BigThumbIcon>
     <ListIcon>Images/icon/Tutorial_Video_85.png</ListIcon>
     <BigListIcon>Images/icon/Tutorial_Video_95.png</BigListIcon>
-  
     <ver>1.0</ver>
     <mgrver></mgrver>
     <fullwidget>y</fullwidget>
+    <category>Lifestyle</category>
 	<movie>y</movie>
     <srcctl>y</srcctl>
     <ticker>n</ticker>
@@ -20,14 +20,14 @@
     <audiomute>n</audiomute>
     <videomute>n</videomute>
     <dcont>y</dcont>
-    <widgetname>BagelTechTV</widgetname>
-    <description>Bagel Tech TV ...</description>
+    <widgetname>BritishTechTV</widgetname>
+    <description>All the latest Britsh Tech News</description>
     <width>960</width>
     <height>540</height>
     <author>
-        <name>Bagel Tech TV</name>
+        <name>British Tech TV</name>
         <email>bageltechnews@gmail.com</email>
         <link>http://www.bageltechnews.com/?cat=31</link>
-        <organization>Bagel Tech TV</organization>
+        <organization>British Tech TV</organization>
     </author>
 </widget>
