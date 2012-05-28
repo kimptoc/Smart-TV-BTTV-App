@@ -11,6 +11,7 @@ NOTES:
 TODO
 - enter on episode list goes to full screen, but when play is pressed, screen is not full screen
 - should return from station page exit app?
+- better format date/time in logging
 
 - fixed? esc/return key on website not returning
 - fixed? x / y selected episode, wrap issue when ep >9

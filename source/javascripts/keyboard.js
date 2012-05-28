@@ -18,8 +18,10 @@
 	//polyfills for ms's peice o' shit browsers
     function bind(target,type,handler) {
         if (target.addEventListener){
+        	bttv.log("has addEventListener:"+type);
             target.addEventListener(type, handler, false);
         } else {
+        	bttv.log("has no addEventListener:"+type);
             target.attachEvent("on"+type, function(event){
                 return handler.call(target, event);
             });
@@ -88,7 +90,19 @@
 		keyBindingGroups = [];
 
 	//adds keys to the active keys array
-	bind(document, "keydown", function(event) {
+
+    //smart tv hack
+    var EVT_KEYUP = "keyup";
+    var EVT_KEYDOWN = "keydown";
+
+    if ((typeof bttv !== "undefined" && bttv !== null ? bttv.tvKey : void 0) != null) {
+    	EVT_KEYDOWN = "keyup";
+    	EVT_KEYUP = "keydown";
+    }
+
+	bind(document, EVT_KEYDOWN, function(event) {
+
+        bttv.log("KeyboardJS:keydown");
 
 		//lookup the key pressed and save it to the active keys array
 		for (var key in keys) {
@@ -105,7 +119,9 @@
 	});
 
 	//removes keys from the active array
-	bind(document, "keyup", function (event) {
+	bind(document, EVT_KEYUP, function (event) {
+
+        bttv.log("KeyboardJS:keyup");
 
 		//lookup the key released and prune it from the active keys array
 		for(var key in keys) {
@@ -168,6 +184,8 @@
 	 * @param event
 	 */
 	function executeActiveKeyBindings(event) {
+
+        bttv.log("KeyboardJS:executeActiveKeyBindings",[event,]);
 
 		if(activeKeys < 1) {
 			return true;

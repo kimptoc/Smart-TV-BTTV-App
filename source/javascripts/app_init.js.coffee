@@ -4,8 +4,9 @@ window.bttv =
 
 
 bttv.log = (msg, data) ->
-  console?.log msg, data
-  alert msg if Common?
+  actual_msg = "#{moment().format('YYYYMMDD h:mm:ss.SSS')}:#{msg}-#{data}"
+  console?.log actual_msg
+  alert actual_msg if Common?
 
 bttv.get_buid = (id) ->
   "buid-#{id}"

@@ -158,7 +158,7 @@ Display.setDescription = (description) ->
   $("#description").html(description)
 
 Display.hide = ->
-  document.getElementById("main").style.display = "none"
+  document.getElementById("main")?.style.display = "none"
 
 Display.show = ->
-  document.getElementById("main").style.display = "block"
+  document.getElementById("main")?.style.display = "block"
