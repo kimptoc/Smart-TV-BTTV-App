@@ -4,4 +4,4 @@ gem "middleman"
 
 gem "rb-fsevent"
 
-gem "win32console"
+gem "win32console",   :platforms => :mswin
