@@ -9,6 +9,7 @@ NOTES:
 - the mouse clicks seems to work, but dont - so dont use the mouse, use keyboard, eg like remote control
 
 TODO
+- consider using gridy to layout available podcasts - http://dailyjs.com/2012/12/10/extender-gridy-reduce/
 - enter on episode list goes to full screen, but when play is pressed, screen is not full screen
 - should return from station page exit app?
 - better format date/time in logging
